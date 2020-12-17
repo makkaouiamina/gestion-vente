@@ -1,0 +1,99 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head>
+	<title>Login</title>
+   
+   <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="login/css/styles.css" />
+	
+</h:head>
+<h:body>
+<h:form>
+<div style="padding-top:110px" class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div style="height: 450px;" class="card">
+			<div class="card-header">
+				
+				<div class="d-flex justify-content-end social_icon">
+					 <img src="login/image/logo.png" alt="" class="d-flex justify-content-end social_icon logo" />
+				</div>
+			</div>
+			
+			<div class="card-body">
+          <h:messages globalOnly="true" style="margin-bottom: 20px;
+          background: #ffa500;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px; " ></h:messages>
+          <h:messages for="name" style="margin-bottom: 20px;
+          background: #df2424;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px;" />
+           <h:messages for="pass" style="margin-bottom: 20px;
+          background: #df2424;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px;" />
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-user"></i></span>
+						</div>
+						
+						 <h:inputText id="name" pt:placeholder="Nom d'utilisateur" type="text" value="#{usersBean.loginUser.login}" class="form-control" placeholder="User ID" required="true" requiredMessage="nom d'utilisateur obligatoire"  />
+						
+					</div>
+					<br />
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-key"></i></span>
+						</div>
+						   <h:inputSecret id="pass" pt:placeholder="Mot de passe" type="password" value="#{usersBean.loginUser.pass}" class="form-control" placeholder="Password" required="true" requiredMessage="Mot de passe obligatoire" />
+					</div>
+					<br />
+					
+					<div class="form-group">
+					<h:commandButton  class="btn float-right btn-submit" action="#{usersBean.loginMethod}" value="Connecter" ></h:commandButton>
+					
+					</div> <br /> <br />
+					<div class="form-group">
+					<h6 style="color: white">Vous n'avez pas encore de compte?</h6>
+		
+			         <a style="color: #ffa412" href="register.xhtml">
+                    Créer un compte
+              </a>
+            
+			</div>
+			</div>
+			
+			</div>
+		</div>
+	</div><br />
+	
+</h:form>
+</h:body>
+</html>

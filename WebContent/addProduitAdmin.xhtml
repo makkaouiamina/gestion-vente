@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" href="apple-icon.png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css' />
+
+<title>Ajouter produit </title>
+</h:head> 
+<h:body style="background-color: lavender"> 
+
+<!-- Left Panel -->
+
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-light">
+
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="listProduitAdmin.xhtml"><img src="login/image/logo.png" alt="Logo" /></a>
+                <a class="navbar-brand hidden" href="listProduitAdmin.xhtml">A</a>
+                 <a class="navbar-brand logo" href="listProduitAdmin.xhtml"><b>#{usersBean.loginUser.login}</b></a>
+            </div>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                  <!--   <a href="tables-data.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>-->   
+                    </li>
+                     <h3 class="menu-title"><i class="menu-icon fa fa-tasks"></i> Listes</h3>
+                            <li><a href="listProduitAdmin.xhtml">Produits </a></li>
+                            <li><a href="listCommandAdmin.xhtml">Commandes</a></li>
+                            <li><a href="listUsersAdmin.xhtml">Clients</a></li>
+                      <h3 class="menu-title"></h3>  
+                    <li>
+                        <a href="editPasswordAdmin.xhtml">Modifier mot de passe</a>
+                    </li>
+                    <li>
+                        <a href="login.xhtml">Deconnexion</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside><!-- /#left-panel -->
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+        <header id="header" class="header">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    </div></div></header>
+       <!-- /header -->
+        <!-- Header-->
+
+       
+
+        <div class="content mt-3">
+         <div class="container">
+ <h:form class="form-login">
+<h2 class="form-login-heading" style="background: #ffb640">Ajouter produit</h2>
+<br />
+ <h:messages globalOnly="true" style="margin-bottom: 20px;
+          background: #ffa500;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px; " ></h:messages>
+<h:messages for="nomP" style="margin-bottom: 20px;
+          background: #df2424;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px;" />
+<h:messages for="descP" style="margin-bottom: 20px;
+          background: #df2424;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px;" />
+<h:messages for="prixP" style="margin-bottom: 20px;
+          background: #df2424;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px;" />
+       
+<div class="login-wrap">
+
+<h:selectOneMenu class="form-control" value="#{produitsBean.nomPdt}">
+<f:selectItems value="#{produitsBean.pStockList}" var="p" itemValue="#{p.nomPdt}" itemLabel="#{p.nomPdt}" />
+</h:selectOneMenu>
+<br />
+<h:inputText class="form-control" pt:placeholder="Description produit" id="descP" value="#{produitsBean.descPdt}"  required="true" requiredMessage="Description est obligatoire!" />
+
+<br />
+<h:inputText class="form-control" pt:placeholder="Prix produit" value="#{produitsBean.prixPdt}" id="prixP"  required="true" requiredMessage="Prix du produit est obligatoire! " />
+
+
+<br/>
+
+<h:commandButton class="btn btn-block btn-round btn-theme" style="border-color:#ffb640; background-color:#ffb640" value="Enregistrer" action="#{produitsBean.addProduit()}" />
+</div>
+
+</h:form>
+</div>
+
+        </div>
+        
+        </div>
+        
+        
+ <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</h:body>
+</html>

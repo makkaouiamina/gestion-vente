@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" href="apple-icon.png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
+
+
+	
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="login/css/styles.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css' />
+<title>Register</title>
+	
+</h:head>
+<h:body>
+	<h:form >
+
+<div style="padding-top:110px" class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div style="height: 580px;" class="card">
+			<div class="card-header">
+				<div class="d-flex justify-content-end social_icon">
+					 <img src="login/image/logo.png" alt="" class="d-flex justify-content-end social_icon logo" />
+				</div>
+			</div>
+			 <h:messages globalOnly="true" style="margin-bottom: 20px;
+          background: #ffa500;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px; " ></h:messages>
+          <h:messages for="name" style="margin-bottom: 20px;
+          background:#df2424;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px;" />
+           <h:messages for="pass" style="margin-bottom: 20px;
+          background: #df2424;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px;" />
+          <h:messages for="pass2" style="margin-bottom: 20px;
+          background: #df2424;
+          color:#fdfdfd;
+          padding: 10px;
+          text-align: center;
+          font-size: 14px;
+          transition: all 0.5s ease;
+          margin-left: 10px;
+          margin-right:10px;" />
+			<div class="card-body">
+         
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-user"></i></span>
+						</div>
+						
+						 <h:inputText id="name" pt:placeholder="Nom d'utilisateur" type="text" value="#{usersBean.loginUser.login}" class="form-control" placeholder="User ID" required="true" requiredMessage="Nom d'utilisateur obligatoire!"  />
+						
+					</div>
+					<br />
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-key"></i></span>
+						</div>
+						  <h:inputSecret id="pass" pt:placeholder="Mot de passe" type="password" value="#{usersBean.loginUser.pass}" class="form-control" placeholder="Password" required="true" requiredMessage="Mot de passe obligatoire!" />
+					</div>
+					<br />
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fa fa-key"></i></span>
+						</div>
+						 <h:inputSecret  id="pass2" pt:placeholder="Confirme le mot de passe" value="#{usersBean.confPassword}" class="form-control" placeholder="Password" required="true" requiredMessage="Confirmation du mot de passe Obligatoire!" />
+					</div>
+					<br />
+					
+					<div class="form-group">
+					<h:commandButton class="btn float-right btn-submit" action="#{usersBean.registerMethod}" value="Inscrire" ></h:commandButton>
+					</div> <br /> <br />
+			
+				    <div class="form-group">
+					<h6 style="color: white">Vous avez déjà un compte?</h6>
+			
+                    <a style="color: #ffa412"  href="login.xhtml">
+                    Se connecter
+                     </a>
+             
+			        </div>
+			
+			</div>
+			
+			</div>
+		</div>
+	</div>
+	
+	</h:form>
+</h:body>
+</html>
